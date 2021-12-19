@@ -6,7 +6,7 @@ class Base64
 	//	outbuf のサイズは、insize / 4 * 3 + 1 必要
 	static void encodeBase64(tjs_uint8* inbuf, tjs_int insize, char* outbuf)
 	{
-		char	*base64str	= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+		const char *base64str	= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 		tjs_int	insize_3	= insize - 3;
 		tjs_int outptr		= 0;
 		tjs_int i;
@@ -168,7 +168,7 @@ public:
 
 					tjs_uint8	digest[16];
 					TVP_md5_finish(&md5state, digest);
-					char*	n2h	= "0123456789abcdef";
+					const char* n2h	= "0123456789abcdef";
 					char		digest_base64[32+1];
 					for(tjs_int i=0; i<16; i++)
 					{
